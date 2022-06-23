@@ -1,4 +1,4 @@
-# Home Lab transmission Docker Image
+# Home Lab Transmission Docker Image
 
 [![Build](https://github.com/TuxdudeHomeLab/docker-image-transmission/actions/workflows/build.yml/badge.svg)](https://github.com/TuxdudeHomeLab/docker-image-transmission/actions/workflows/build.yml) [![Lint](https://github.com/TuxdudeHomeLab/docker-image-transmission/actions/workflows/lint.yml/badge.svg)](https://github.com/TuxdudeHomeLab/docker-image-transmission/actions/workflows/lint.yml)
 
