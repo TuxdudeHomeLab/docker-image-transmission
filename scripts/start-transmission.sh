@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e -o pipefail
+set -E -e -o pipefail
 
 if [[ "${TRANSMISSION_DATA_DIR}" == "" ]]; then
     echo "TRANSMISSION_DATA_DIR environment variable cannot be empty"

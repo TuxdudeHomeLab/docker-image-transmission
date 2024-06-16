@@ -15,7 +15,7 @@ SHELL ["/bin/bash", "-c"]
 ARG PACKAGES_TO_INSTALL
 
 RUN --mount=type=bind,target=/scripts,from=with-scripts,source=/scripts \
-    set -e -o pipefail \
+    set -E -e -o pipefail \
     # Install dependencies. \
     && homelab install ${PACKAGES_TO_INSTALL:?} \
     # Copy the start-transmission.sh script. \
