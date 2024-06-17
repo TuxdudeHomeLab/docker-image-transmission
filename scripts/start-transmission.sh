@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 set -E -e -o pipefail
 
+set_umask() {
+    # Configure umask to allow write permissions for the group by default
+    # in addition to the owner.
+    umask 0002
+}
+
 if [[ "${TRANSMISSION_DATA_DIR}" == "" ]]; then
     echo "TRANSMISSION_DATA_DIR environment variable cannot be empty"
     echo "Please set the path to the base dir for Transmission's data using this environment variable!"
@@ -37,5 +43,6 @@ start_transmission() {
     exec transmission-daemon --foreground --config-dir ${TRANSMISSION_HOME_DIR:?} --logfile /dev/stdout
 }
 
+set_umask
 setup_transmission
 start_transmission
