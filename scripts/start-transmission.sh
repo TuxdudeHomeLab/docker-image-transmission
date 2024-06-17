@@ -7,19 +7,21 @@ set_umask() {
     umask 0002
 }
 
-if [[ "${TRANSMISSION_DATA_DIR}" == "" ]]; then
-    echo "TRANSMISSION_DATA_DIR environment variable cannot be empty"
-    echo "Please set the path to the base dir for Transmission's data using this environment variable!"
-    exit 1
-fi
 
-TRANSMISSION_HOME_DIR="${TRANSMISSION_DATA_DIR:?}/transmission-home"
-TRANSMISSION_COMPLETED_DIR="${TRANSMISSION_DATA_DIR:?}/completed"
-TRANSMISSION_INCOMPLETE_DIR="${TRANSMISSION_DATA_DIR:?}/incomplete"
-TRANSMISSION_WATCH_DIR="${TRANSMISSION_DATA_DIR:?}/watch"
 
 setup_transmission() {
     echo "Setting up transmission ..."
+
+    if [[ "${TRANSMISSION_DATA_DIR}" == "" ]]; then
+        echo "TRANSMISSION_DATA_DIR environment variable cannot be empty"
+        echo "Please set the path to the base dir for Transmission's data using this environment variable!"
+        exit 1
+    fi
+
+    TRANSMISSION_HOME_DIR="${TRANSMISSION_DATA_DIR:?}/transmission-home"
+    TRANSMISSION_COMPLETED_DIR="${TRANSMISSION_DATA_DIR:?}/completed"
+    TRANSMISSION_INCOMPLETE_DIR="${TRANSMISSION_DATA_DIR:?}/incomplete"
+    TRANSMISSION_WATCH_DIR="${TRANSMISSION_DATA_DIR:?}/watch"
 
     mkdir -p \
         ${TRANSMISSION_HOME_DIR:?} \
