@@ -25,10 +25,10 @@ RUN --mount=type=bind,target=/scripts,from=with-scripts,source=/scripts \
     # Clean up. \
     && homelab cleanup
 
-ENV PATH="/opt/bin:${PATH}"
-
 # Transmission RPC
 EXPOSE 9091
 
 WORKDIR /
+
 CMD ["start-transmission"]
+STOPSIGNAL SIGTERM
