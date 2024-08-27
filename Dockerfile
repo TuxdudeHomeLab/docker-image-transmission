@@ -16,6 +16,7 @@ ARG PACKAGES_TO_INSTALL
 
 RUN --mount=type=bind,target=/scripts,from=with-scripts,source=/scripts \
     set -E -e -o pipefail \
+    && export HOMELAB_VERBOSE=y \
     # Install dependencies. \
     && homelab install ${PACKAGES_TO_INSTALL:?} \
     # Copy the start-transmission.sh script. \
