@@ -12,6 +12,7 @@ FROM ${BASE_IMAGE_NAME}:${BASE_IMAGE_TAG}
 
 ARG PACKAGES_TO_INSTALL
 
+# hadolint ignore=SC3040
 RUN --mount=type=bind,target=/scripts,from=with-scripts,source=/scripts \
     set -E -e -o pipefail \
     && export HOMELAB_VERBOSE=y \
