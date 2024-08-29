@@ -10,8 +10,6 @@ ARG BASE_IMAGE_NAME
 ARG BASE_IMAGE_TAG
 FROM ${BASE_IMAGE_NAME}:${BASE_IMAGE_TAG}
 
-SHELL ["/bin/bash", "-c"]
-
 ARG PACKAGES_TO_INSTALL
 
 RUN --mount=type=bind,target=/scripts,from=with-scripts,source=/scripts \
